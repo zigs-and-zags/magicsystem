@@ -1,0 +1,10 @@
+@MagicSystem.BFF_HostAddress = https://localhost:7121
+
+POST {{MagicSystem.BFF_HostAddress}}/loom/the-start-of-it-all/cast
+Accept: application/json
+
+{
+  "spellType": "conjure-tome",
+  "spell": { "rarity": "common", "name": "the-book-of-creation", "spells":  [ "conjure-tome" ] }
+}
+###
