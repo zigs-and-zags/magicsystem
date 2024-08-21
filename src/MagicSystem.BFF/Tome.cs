@@ -10,23 +10,23 @@ internal static class Tome
     
     internal static async Task<IResult> Cast(   
         [FromServices] Loom loom,
-        string tomeTitle,
+        string tomeName,
         CastRequest request,
         CancellationToken cancellation = default)
         {
             var parsed = request.Spell.Deserialize(Spells.SpellType.For(request.SpellType), Api.JsonParsingOptions);
             if (parsed == null) return TypedResults.BadRequest("Spell not recognized");
             
-            await loom.Cast(new AuditTrail.CorrelationIdentifier(tomeTitle), (Spell)parsed, cancellation).ConfigureAwait(false);
+            await loom.Cast(new AuditTrail.CorrelationIdentifier(tomeName), (Spell)parsed, cancellation).ConfigureAwait(false);
             return TypedResults.Ok();
         }
     
     internal static async Task<IResult> History(
         [FromServices] Loom loom,
-        string tomeTitle,
+        string tomeName,
         CancellationToken cancellationToken = default)
         {
-            var history = await loom.History(new AuditTrail.CorrelationIdentifier(tomeTitle), cancellationToken).ConfigureAwait(false);
+            var history = await loom.History(new AuditTrail.CorrelationIdentifier(tomeName), cancellationToken).ConfigureAwait(false);
             if (history.Count < 1) return TypedResults.NotFound();
             return TypedResults.Ok(history);
         }

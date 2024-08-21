@@ -29,13 +29,13 @@ namespace MagicSystem.BFF
             {
                 var tomes = builder.MapGroup("tomes");
                 
-                tomes.MapGet("{tomeTitle}", Tome.History)
+                tomes.MapGet("{tomeName}", Tome.History)
                     .WithName(Endpoint.History)
                     .Produces(StatusCodes.Status200OK)
                     .ProducesProblem(StatusCodes.Status404NotFound)
                     .WithSummary("The history of spells cast by the tome");
                 
-                tomes.MapPost("{tomeTitle}/cast", Tome.Cast)
+                tomes.MapPost("{tomeName}/cast", Tome.Cast)
                     .WithName(Endpoint.Cast)
                     .Produces(StatusCodes.Status200OK)
                     .WithSummary("Cast a spell");
