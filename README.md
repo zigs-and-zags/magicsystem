@@ -2,9 +2,11 @@
 ## Setup
 ```bash
 git clone https://github.com/zigs-and-zags/magicsystem.git && cd magicsystem
+echo "running setup script, choose (keep) to use the migrations provided in the repo"
 ./scripts/setup.sh
+echo "starting api, go to: https://localhost:7121/swagger/index.html"
 dotnet run --project ./src/MagicSystem.BFF --launch-profile "https"
-echo "go to: https://localhost:7121/swagger/index.html"
+
 ```
 
 
