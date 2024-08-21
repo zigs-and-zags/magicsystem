@@ -4,7 +4,12 @@
 git clone https://github.com/zigs-and-zags/magicsystem.git && cd magicsystem
 echo "running setup script, choose (keep) to use the migrations provided in the repo"
 ./scripts/setup.sh
+echo ""
 echo "starting api, go to: https://localhost:7121/swagger/index.html"
+echo "see the MagicSystem.BFF.http file on how to structure the post request"
+echo "after casting a conjure-tome spell you should see its json appear in MagicSystem/Infrastructure/ContentStore/Data"
+echo "you can see the audited spell events which got casted by a tome by calling get on /loom/tomes/{tomeName}"
+echo ""
 dotnet run --project ./src/MagicSystem.BFF --launch-profile "https"
 
 ```
