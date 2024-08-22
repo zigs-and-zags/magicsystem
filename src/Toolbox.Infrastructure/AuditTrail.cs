@@ -8,6 +8,7 @@ public interface AuditTrail
     // It explicitly forces you to write the full "AuditTrail.Entry" when trying to implement it.
     // Which is great when using generic-ish names inside interfaces without your code becoming spaghetti.
     Task Store(AuditTrail.Entry entry, CancellationToken cancellationToken);
+    // TODO pagination
     Task<IReadOnlyCollection<AuditTrail.Entry>> For(AuditTrail.CorrelationIdentifier correlationIdentifier, CancellationToken cancellationToken);
 
     

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Toolbox.Infrastructure;
 
-// TODO other file types
+// Used for storing objects internal to the system, don't expose to other users
 public class FileSystemContentStore : ContentStore
 {
     private readonly string mounted;

@@ -1,5 +1,6 @@
 namespace Toolbox.Infrastructure;
 
+// TODO use as storage for outbox
 public interface ContentStore
 {
     public interface Content { }
